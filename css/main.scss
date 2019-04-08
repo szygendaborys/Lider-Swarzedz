@@ -1,0 +1,223 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+.body-wrapper {
+    background-color:black;
+    height:100vh;  //              HEIGHT BODY WRAPPERA USTAW POZNIEJ INNY
+    width:100vw;    
+    transition:300ms linear;
+    left:0;
+}
+
+// VARIABLES -- dark theme   https://coolors.co/d8d8d8-c4a798-cc9f27-941417-000000
+    $primary-font: 'Lato', sans-serif;
+    $white-background: #E6E6E6;
+    $khaki-background: #C4A798;
+    $yellow-background: #F5EDD7;
+    $red: #941417;
+    $black: #000000;
+   
+
+// HEADER
+
+.sponsor-list {
+    background-color:#EEE7E2;
+    height:50px;
+    z-index: 1;
+    color:white;
+    overflow: hidden;
+
+    .sponsors-compact {
+        display:none;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        .sponsor {
+            font-size: 1.5rem;
+        }
+    }
+
+    .sponsors {
+        display:flex;
+        padding: 5px 2rem;
+        overflow: hidden;
+        z-index: 1;
+        animation: sponsorSlide 10s linear infinite;
+        margin-left:12rem;
+
+        &:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        .sponsor {
+            margin-right:2rem;
+            z-index: 1;
+        }
+    }
+
+    @keyframes sponsorSlide {
+        0% {padding-left:100%;}
+        50% {padding-left:2rem;}
+        98% {opacity:1}
+        100% {opacity:0}
+    }
+}
+
+.menu {
+    width:100vw;
+    height:50px;
+    background-color:$red;
+    display:flex;
+    flex-direction: row;
+    z-index:5;
+    .navbar-logo {
+        height: 180px;
+        margin-left:4rem;
+        margin-top:-30px;
+        z-index:5;
+    }
+
+    ul {
+        list-style: none;
+        align-items: center;
+        margin-bottom:0;
+    }
+
+    .navlinks {
+        display:flex;
+        margin-left:5rem;
+
+        .navlink {
+            margin-right:4rem;
+
+            a{
+                color:#F7F7F7;
+                font-size:1.2rem;
+                transition:200ms ease;
+                &:hover {
+                    text-decoration: none;
+                    font-size:1.3rem;
+                }
+            }
+        }
+    }
+
+    .navlinks:last-child {
+        margin-right:0;
+    }
+
+}
+
+// compact
+
+.compact-navlinks {
+    color:white;
+    display:none;
+    i {
+        font-size: 2rem;
+        margin-right:1rem;
+    }
+}
+
+.compact-menu {
+    position: fixed;
+    top:0;
+    height:100vh;
+    left:-100%;
+    background-color: $red;
+    width:250px;
+    list-style: none;
+    transition:250ms linear;
+    padding:1rem;
+    .navlink {
+        font-size:2rem;
+        padding:10px 5px;
+        text-align: center;
+        border-bottom:1px solid $white-background;
+        &:first-child{
+            margin-top:5rem;
+            border-top:1px solid $white-background;
+        }
+        a{
+            color:$white-background;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .burger{
+        position: absolute;
+        background-color: $red;
+        border:none;
+        color:$white-background;
+        font-size:3rem;
+        top:1rem;
+        right:2rem;
+        padding: 0 15px;
+    }
+}
+
+// MAIN CONTENT
+
+.main-content {
+    margin-top:5rem;
+    color:white;
+
+    .title {
+        margin-bottom:2rem;
+    }
+
+    .row {
+        justify-content: space-around;
+    }
+    .articles {
+        .article {
+            border:1px solid $white-background;
+            padding:1rem;
+        }
+    }
+
+    .infos {
+
+    }
+}
+
+
+
+@media screen and (max-width:1000px) {
+    .navbar-logo {
+        height:100px !important;
+        margin-top:-15px !important;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .navlinks {
+        display:none !important;
+    }
+
+    .compact-navlinks {
+        display:flex;
+        position: absolute;
+        height: 50px;
+        right:25px;
+    }
+}
+
+@media screen and (max-width:730px) {
+    .sponsors {
+        display:none !important;
+    }
+
+    .sponsors-compact {
+        display:flex !important;
+        justify-content: space-around;
+    }
+}
